@@ -1,0 +1,286 @@
+/* ==========================================================================
+   1. Design System & Global Variables
+   ========================================================================== */
+:root {
+    /* Color Palette */
+    --primary-color: #d4af37;       /* Warm metallic gold */
+    --dark-bg: #11141a;             /* Deep luxury charcoal */
+    --light-bg: #f9f9fb;            /* Clean, off-white for contrast */
+    --text-dark: #2d3748;           /* Charcoal for readable body text */
+    --text-muted: #718096;          /* Muted gray for secondary descriptions */
+    --white: #ffffff;
+    
+    /* Layout & Animation Settings */
+    --max-width: 1200px;
+    --radius-lg: 12px;
+    --radius-sm: 6px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+/* Modern CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Global Container utility */
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ==========================================================================
+   2. Header & Branding Style
+   ========================================================================== */
+.main-header {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    object-fit: cover;
+}
+
+.restaurant-name {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.5px;
+}
+
+/* Navigation Links */
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.nav-menu a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   3. Menu Showcase Grid
+   ========================================================================== */
+.menu-section {
+    padding: 80px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    color: var(--dark-bg);
+    margin-bottom: 12px;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* Responsive Grid layout */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+/* Menu Category Cards */
+.menu-card {
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: var(--transition);
+}
+
+/* Premium Card Hover Effect */
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.card-image-wrapper {
+    overflow: hidden;
+    height: 240px;
+    position: relative;
+    background-color: #eee;
+}
+
+.menu-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.menu-card:hover .menu-card-img {
+    transform: scale(1.06);
+}
+
+.card-body {
+    padding: 28px;
+}
+
+.card-body h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--dark-bg);
+    margin-bottom: 12px;
+}
+
+.card-body p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   4. Contact Info & Footer Setup
+   ========================================================================== */
+.site-footer {
+    background-color: var(--dark-bg);
+    color: #cbd5e0;
+    padding: 70px 0 25px;
+    margin-top: 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    border-bottom: 1px solid #2d3748;
+    padding-bottom: 45px;
+}
+
+.site-footer h3, 
+.site-footer h4 {
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.site-footer h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.7rem;
+}
+
+.site-footer h4 {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+/* Small detail bars under subheaders */
+.site-footer h4::after {
+    content: '';
+    display: block;
+    width: 35px;
+    height: 2px;
+    background-color: var(--primary-color);
+    margin-top: 8px;
+}
+
+.site-footer p {
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+}
+
+.site-footer a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.site-footer a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 25px;
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+/* ==========================================================================
+   5. Mobile Responsive Breakdown
+   ========================================================================== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .nav-menu ul {
+        gap: 20px;
+    }
+
+    .section-header h2 {
+        font-size: 2.1rem;
+    }
+
+    .footer-grid {
+        text-align: center;
+    }
+    
+    .site-footer h4::after {
+        margin: 8px auto 0;
+    }
+}
